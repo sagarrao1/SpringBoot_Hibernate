@@ -14,21 +14,60 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        System.out.println( "Hello World!" );        
+		/*
+		 * StudentName an= new StudentName(); an.setFname("Vidya sagar");
+		 * an.setLname("Annamaneni"); an.setMname("Rao");
+		 */          
+		
+        Laptop l1= new Laptop();        
+        l1.setLid(1);
+        l1.setLname("Dell");        
         
-        Student s1 = new Student();
-        s1.setId(103);
-        s1.setName("bala");
-        s1.setPoints(35);
+        Laptop l2= new Laptop();        
+        l2.setLid(2);
+        l2.setLname("Hp");
         
-        Configuration conf = new Configuration().configure().addAnnotatedClass(Student.class);
+       
+        Student s2 =  new Student();
+		s2.setId(101);
+		s2.setName("Sagar");
+		s2.setPoints(95);
+		s2.getLaptops().add(l1);
+		s2.getLaptops().add(l2);
+		
+		Student s3 =  new Student();
+		s3.setId(102);
+		s3.setName("Ravi");
+		s3.setPoints(15);
+		s3.getLaptops().add(l1);
+		s3.getLaptops().add(l2);
+		
+		
+		l1.getStudents().add(s2);
+		l1.getStudents().add(s3);
+		
+		l2.getStudents().add(s2);
+		l2.getStudents().add(s3);
+        
+		
+		
+        Configuration conf = new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);
         ServiceRegistry reg = new ServiceRegistryBuilder().applySettings(conf.getProperties()).buildServiceRegistry();
         SessionFactory sf = conf.buildSessionFactory(reg);
         Session session = sf.openSession();        
         
         Transaction tx = session.beginTransaction();
-        session.save(s1);
+        
+        session.save(s2);
+        session.save(s3);
+        session.save(l1);
+        session.save(l2);
+        
+        
+//        s1= (Student) session.get(Student.class, 102);
         tx.commit();
         
+//        System.out.println(s1);
     }
 }
