@@ -61,7 +61,9 @@ public class App
         session.save(s3);
         session.save(l1);
         session.save(l2);
-        
+          
+        //Persistent state of object
+        //s3.setPoints(60);
         
 //        s1= (Student) session.get(Student.class, 102);
         tx.commit();
