@@ -1,13 +1,11 @@
 package com.learning.Hibernate_Core;
 
-import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-
+//HQL queries usage 
 public class App4 {
 
 	public static void main(String[] args) {
