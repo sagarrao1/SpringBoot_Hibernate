@@ -59,15 +59,20 @@ public class App
         
         session.save(s2);
         session.save(s3);
-        session.save(l1);
-        session.save(l2);
+        //session.save(l1);
+        //session.save(l2);
           
         //Persistent state of object
-        //s3.setPoints(60);
+        s3.setPoints(60);
         
+        //session.remove(s3);
 //        s1= (Student) session.get(Student.class, 102);
         tx.commit();
-        
+
+        session.detach(s3);
+        // we have used detach so it moved from persitance state to detached state
+        s3.setPoints(15);
+
 //        System.out.println(s1);
     }
 }

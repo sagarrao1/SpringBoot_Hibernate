@@ -13,13 +13,8 @@ public class App3 {
 
 	public static void main(String[] args) {
 		
-		/*
-		 * Alien_table a1 = new Alien_table(); a1.setAid(1); a1.setAname("Sagar");
-		 * a1.setMarks(76);
-		 * 
-		 * Alien_table a2 = new Alien_table(); a2.setAid(2); a2.setAname("Ravi");
-		 * a2.setMarks(16);
-		 */		
+		
+		 		
 		Alien_table at =new Alien_table();
 		
 		Configuration config = new Configuration().configure().addAnnotatedClass(Alien_table.class);		
@@ -30,14 +25,23 @@ public class App3 {
 		session1.beginTransaction();
 		
 		System.out.println("session 1 ................");
+
+		Alien_table a1 = new Alien_table(); a1.setAid(1); a1.setAname("Sagar");
+		  a1.setMarks(76);
+		  
+		  Alien_table a2 = new Alien_table(); a2.setAid(2); a2.setAname("Ravi");
+		  a2.setMarks(16);
+
+
+			session1.save(a1);
+			session1.save(a2);
 		
-		/*
-		 * Random r= new Random();
-		 * 
-		 * for (int i = 3; i < 100; i++) { Alien_table t = new Alien_table();
-		 * t.setAid(i); t.setAname("Sagar "+i); t.setMarks(r.nextInt(100));
-		 * session1.save(t); }
-		 */		
+		  Random r= new Random();
+		  
+		  for (int i = 3; i < 100; i++) { Alien_table t = new Alien_table();
+		  t.setAid(i); t.setAname("Sagar "+i); t.setMarks(r.nextInt(100));
+		  session1.save(t); }
+		 		
 
 		// Query with cache Query q1=
 		Query q1=session1.createQuery("select aid ,aname,marks from Alien_table where marks>80");
@@ -65,6 +69,7 @@ public class App3 {
 				
 		//at =  (Alien_table) session2.get(Alien_table.class, 1);
 		//System.out.println(at);
+		
 		
 		session2.getTransaction().commit();
 		session2.close();
