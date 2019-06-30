@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd"> -->
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+   <!-- default-init-method="myInit" default-destroy-method="myCleanup" -->
+   
+<!--    <context:component-scan base-package="com.learning.SpringDemo"></context:component-scan> -->
+
+    <!-- XML type configuration -->
+<!--     <bean id="parent-triangle" class="com.javabrains.learning.SpringDemo.Triangle">
+		<property name="points" >
+			<list>
+				<ref bean="pointA"></ref>				
+			</list>
+		</property>	
+	
+	</bean>
+ -->
+ 	<bean id="shape" class="com.javabrains.learning.SpringDemo.Triangle" >		
+		<property name="pointA" ref="pointA"></property>	
+		<property name="pointB" ref="pointB"></property>	
+		<property name="pointC" ref="pointC"></property>			
+	</bean>
+
+<!--  	<bean id="shape" class="com.javabrains.learning.SpringDemo.Circle" >		
+		<property name="center" ref="pointA"></property>	
+	</bean> -->
+
+ 	<bean id="triangle" class="com.javabrains.learning.SpringDemo.Triangle" >		
+		<property name="pointA" ref="pointA"></property>	
+		<property name="pointB" ref="pointB"></property>	
+		<property name="pointC" ref="pointC"></property>			
+	</bean>
+
+<!-- 	<bean id="triangle2" class="com.javabrains.learning.SpringDemo.Triangle" parent="parent-triangle">		
+		<property name="pointB" ref="pointB"></property>				
+	</bean>
+ -->
+
+	<bean id="pointA" class="com.javabrains.learning.SpringDemo.Point">
+		<property name="x" value="${pointA.pointX}"></property>	
+		<property name="y" value="${pointA.pointY}"></property>
+	</bean>
+	
+	<bean id="pointB" class="com.javabrains.learning.SpringDemo.Point">
+		<property name="x" value="-20"></property>	
+		<property name="y" value="0"></property>
+		
+	</bean>
+	
+	<bean id="pointC" class="com.javabrains.learning.SpringDemo.Point">
+		<property name="x" value="0"></property>	
+		<property name="y" value="20"></property>
+		
+	</bean>
+	
+<!-- 	<bean class="com.javabrains.learning.SpringDemo.MyBeanFactoryPostProcesser"></bean> -->
+	<bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		<property name="locations" value="pointsConfig.properties"></property>
+	</bean>
+
+ 	<bean id="circle" class="com.javabrains.learning.SpringDemo.Circle" >		
+		<property name="center" ref="pointA"></property>	
+	</bean>
+
+	<!-- <bean id="tyre" class="com.learning.SpringDemo.Tyre">
+		<property name="brand" value="MRF"></property>
+		<constructor-arg value="Appolo"></constructor-arg>
+		
+	</bean> -->
+</beans>
