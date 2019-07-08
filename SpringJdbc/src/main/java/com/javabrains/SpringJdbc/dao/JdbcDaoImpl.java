@@ -12,6 +12,10 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Component;
 
 import com.javabrains.SpringJdbc.model.Circle;
@@ -22,6 +26,9 @@ public class JdbcDaoImpl {
 	//private DataSource dataSource;	
 	
 	private JdbcTemplate jdbcTemplate;
+	private NamedParameterJdbcTemplate namedParamJdbcTemplate;
+	
+	
 
 	/*
 	 * public JdbcTemplate getJdbcTemplate() { return jdbcTemplate; }
@@ -38,6 +45,7 @@ public class JdbcDaoImpl {
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		this.namedParamJdbcTemplate= new NamedParameterJdbcTemplate(dataSource);
 	}
 	 
 	public int getCircleCount() {
@@ -74,6 +82,23 @@ public class JdbcDaoImpl {
 	    return jdbcTemplate.query(sql, new CircleMapper());
 	  
 	 }
+	
+	public void insertCircle(Circle circle) {
+		String sql="insert into circle(ID,NAME) values(:id, :name)";
+		SqlParameterSource namedParameters= new MapSqlParameterSource("id", circle.getId()).
+												addValue("name", circle.getName());
+	    //jdbcTemplate.update(sql, new Object[] {circle.getId(), circle.getName()});
+		System.out.println(namedParameters.getValue("id"));
+		namedParamJdbcTemplate.update(sql, namedParameters);
+	    System.out.println(" record inserted in circle table");
+	}
+	
+	
+	public void createTrianlgeTable() {
+		String sql="create table triangle(id int(11), name varchar(30))";
+		jdbcTemplate.execute(sql);
+		System.out.println("table created");
+	}
 	
 	/*
 	 * public Circle getCircle(int circleId) {
