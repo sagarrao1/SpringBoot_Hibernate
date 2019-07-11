@@ -42,7 +42,7 @@ public class HibernateTest {
 		
 		user.getListOfaddresses().add(addr);
 		user.getListOfaddresses().add(addr2);
-		
+//		
 //		user.setHome_address(addr);
 //		user.setOffice_address(addr2);
 		
@@ -53,11 +53,13 @@ public class HibernateTest {
 		tx.commit();
 		session.close();
 		
-//		user=null;
-//		session= sessionFactory.openSession();
-//		session.beginTransaction();
-//		user = session.get(UserDetails.class, 1);
-//		System.out.println(user.getUserId()+": "+ user.getUserName()+": "+user.getJoinedDate());
+		user=null;
+		session= sessionFactory.openSession();
+		session.beginTransaction();
+		user = session.get(UserDetails.class, 1);
+		System.out.println(user.getUserId()+": "+ user.getUserName()+": "+user.getJoinedDate());
+		session.close();
+		System.out.println(user.getListOfaddresses().size());
 		
 	}
 	

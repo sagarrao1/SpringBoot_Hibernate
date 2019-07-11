@@ -17,6 +17,8 @@
  -->
  		<!-- Names the annotated entry class -->
  		<mapping class="com.javabrains.Hibernate3.model.UserDetails"/>
+ 		<mapping class="com.javabrains.Hibernate3.model.Employee"/>
+ 		<mapping class="com.javabrains.Hibernate3.model.Vehicle"/>
  		
      </session-factory>
 </hibernate-configuration>
