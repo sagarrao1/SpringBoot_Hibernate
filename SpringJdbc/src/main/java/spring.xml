@@ -22,8 +22,8 @@
    		<property name="maxTotal" value="5"></property>
    </bean>
 
-<!-- 	<bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	<bean name="jdbcTemplateDaoImpl" class="com.javabrains.SpringJdbc.dao.JdbcTemplateDaoImpl">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>   
- --> 
+ 
  </beans>   
