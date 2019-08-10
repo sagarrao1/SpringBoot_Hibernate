@@ -6,8 +6,24 @@
 </head>
 <body>
 	<form method="post" action="Servelet-path1">
-		<input name="userName">
+		<h4> Enter your details</h4>
+		userName<input name="userName">
+		fullName<input name="fullName"><br><br>
+		Profession: 
+		<input type="radio" name="prof" value="Developer">Developer
+		<input type="radio" name="prof" value="Architect">Architect<br><br>
+		
+		Location : <select name="location" multiple="multiple" size="4">
+			  <option value="Hyderabad">Hyderabad</option>
+			  <option value="Bangalore">Bangalore</option>
+			  <option value="Chennai">Chennai</option>
+			  <option value="Kochin">Kochin</option>			  
+		</select> <br><br>
+		
 		<input type="submit">
+		
+		
+		
 	</form>
 
 </body>

@@ -4,14 +4,18 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
- <!--  <servlet>
+  <servlet>
   	<servlet-name>Servelet1</servlet-name>
   	<display-name>Servelet1</display-name>
   	<description> A simple servelet description</description>
   	<servlet-class>com.javabrains.Servelet1</servlet-class>
+  	<init-param>
+  		<param-name>DefaultUser</param-name>
+  		<param-value> Sandhya from xml init param</param-value>
+  	</init-param>
   </servlet>
   <servlet-mapping>
   	<servlet-name>Servelet1</servlet-name>
-  	<url-pattern>/Servelet-path</url-pattern>
-  </servlet-mapping> -->
+  	<url-pattern>/Servelet-path1</url-pattern>
+  </servlet-mapping>
 </web-app>
