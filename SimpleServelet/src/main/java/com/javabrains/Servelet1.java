@@ -18,8 +18,17 @@ import javax.servlet.http.HttpSession;
 public class Servelet1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
+	public void init() throws ServletException {
+		String s = getServletConfig().getInitParameter("DefaultUser");
+		ServletContext context=getServletContext();
+		context.setAttribute("DefaultUserCtx", s);
+	}
+	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter writer=  response.getWriter();
 		System.out.println("Hello world from doGet servelet1");
@@ -38,10 +47,13 @@ public class Servelet1 extends HttpServlet {
 		writer.println("Username from session Object: "+(String)session.getAttribute("saveUserName")+"<br>");
 		writer.println("Username from context Object: "+(String)context.getAttribute("saveCtxUserName")+"<br>");
 		
-		writer.println("Default Username from init Parameter: "+this.getServletConfig().getInitParameter("DefaultUser")+"<br>");
+		writer.println("Default Username from init Parameter: "+this.getServletConfig().getInitParameter("DefaultUser")+"<br>");		
+		writer.println("<br>");
 		
+		writer.println("Default Username from servelet1 context is : "+getServletContext().getAttribute("DefaultUserCtx"));
+		writer.println("<br>");
 		
-		
+		writer.println("Default Username from initPage JSP context is : "+getServletContext().getAttribute("DefaultUser1Ctx"));
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
