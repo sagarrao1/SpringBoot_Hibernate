@@ -11,6 +11,10 @@ public class MessageService {
 	
 	private static Map<Long, Message> messagesMap= DatabaseClass.getMessages();
 	
+	public MessageService() {
+		messagesMap.put(1L, new Message(1,"Hello World 1","Sagar"));
+		messagesMap.put(2L, new Message(2,"Hello World 2","Narotham"));
+	}
 	
 	public List<Message> getAllMessages() {			
 		System.out.println(messagesMap.values());
