@@ -1,0 +1,63 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+<context-param>
+	<param-name>context_user</param-name>
+	<param-value> this user or variable avaiable to all servelets </param-value>
+</context-param>
+  
+
+  <servlet>
+  	<servlet-name>Servelet1</servlet-name>
+  	<display-name>Servelet1</display-name>
+  	<description> A simple servelet description</description>
+  	<servlet-class>com.javabrains.Servelet1</servlet-class>
+  	<init-param>
+  		<param-name>DefaultUser</param-name>
+  		<param-value> Sandhya from xml init param</param-value>
+  	</init-param>
+  </servlet>
+  <servlet>
+  	<servlet-name>Servelet2</servlet-name>
+  	<display-name>Servelet2</display-name>
+  	<description></description>
+  	<servlet-class>com.javabrains.Servelet2</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>InitJsp</servlet-name>
+  	<jsp-file>/InitPage.jsp</jsp-file>
+  	  	<init-param>
+  		<param-name>DefaultUser1</param-name>
+  		<param-value> Sandhya from jsp init param</param-value>
+  	</init-param>  	
+  </servlet>
+  <servlet>
+  	<servlet-name>LoginServelet</servlet-name>
+  	<display-name>LoginServelet</display-name>
+  	<description></description>
+  	<servlet-class>com.javabrains.controller.LoginServelet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Servelet1</servlet-name>
+  	<url-pattern>/Servelet-path1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Servelet2</servlet-name>
+  	<url-pattern>/Servelet-path2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>InitJsp</servlet-name>
+  	<url-pattern>/InitPage.jsp</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginServelet</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+
+  
+</web-app>
