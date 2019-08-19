@@ -17,6 +17,10 @@ public class DatabaseClass {
 		return messagesMap;
 	}
 	
+	public static void addMessage(Long id ,Message msg){
+		messagesMap.put(id, msg);
+		
+	}
 	public static Map<String,Profile> getProfiles(){
 		return profilesMap;
 	}
