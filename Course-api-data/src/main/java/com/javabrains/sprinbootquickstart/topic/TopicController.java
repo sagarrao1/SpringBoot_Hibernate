@@ -1,4 +1,4 @@
-package io.javabrains.springbootstarter.topic;
+package com.javabrains.sprinbootquickstart.topic;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
