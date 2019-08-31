@@ -1,0 +1,1 @@
+insert into Student values(101,'Sagar','Oracle');
