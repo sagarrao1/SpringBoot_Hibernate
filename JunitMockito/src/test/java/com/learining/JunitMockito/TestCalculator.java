@@ -18,7 +18,8 @@ public class TestCalculator  {
 	@Mock
 	CalculatorService service;
 	
-	@Rule public MockitoRule rule= MockitoJUnit.rule();
+	@Rule 
+	public MockitoRule mockitoRule= MockitoJUnit.rule();
 	
 	//CalculatorService service = mock(CalculatorService.class); 
 			
@@ -42,7 +43,7 @@ public class TestCalculator  {
 		
 		when(service.add(2,3)).thenReturn(5);		
 		assertEquals(10, c.perform(2, 3));
-		verify(service).add(2, 3);
+		verify(service, atLeast(1)).add(anyInt(), eq(3));
 		
 	}
 
