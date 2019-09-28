@@ -11,7 +11,7 @@ import org.mockito.junit.MockitoRule;
 
 import static org.mockito.Mockito.*;
 
-public class TestCalculator  {
+public class CalculatorTest  {
 	
 	Calculator c = null;
 
