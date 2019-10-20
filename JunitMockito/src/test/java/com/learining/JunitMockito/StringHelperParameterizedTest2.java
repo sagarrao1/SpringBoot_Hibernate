@@ -1,8 +1,8 @@
 package com.learining.JunitMockito;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 import org.junit.Test;
@@ -40,7 +40,7 @@ public class StringHelperParameterizedTest2 {
 	@Test
 	public void testareFirstAndLast2CharsSame() {
 	
-		System.out.println("testareFirstAndLast2CharsSame");
+//		System.out.println("testareFirstAndLast2CharsSame");
 		assertTrue(helper.areFirstAndLast2CharsSame(input));		
 	}
 

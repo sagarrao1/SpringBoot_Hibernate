@@ -36,7 +36,7 @@ public class StringHelper {
 		}
 		String first2chars= str.substring(0,2);		
 		String last2chars= str.substring(str.length()-2);		
-		System.out.println("last2chars : "+last2chars);
+//		System.out.println("last2chars : "+last2chars);
 		return first2chars.equals(last2chars);
 	}
 	
